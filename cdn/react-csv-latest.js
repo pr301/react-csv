@@ -314,6 +314,9 @@ var getHeaderValue = exports.getHeaderValue = function getHeaderValue(property, 
     if (o[p] === undefined) {
       arr.splice(1);
     } else {
+      if (typeof o[p] === 'string') {
+        o[p] = o[p].replace(/"/g, '""');
+      }
       return o[p];
     }
   }, obj);
